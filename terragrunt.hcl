@@ -6,11 +6,11 @@ remote_state {
   }
 
   config = {
-    profile = "anton"
+    profile  = "anton"
     role_arn = "arn:aws:iam::424432388155:role/terraform"
-    bucket = "antonputra-terraform-state"
+    bucket   = "antonputra-terraform-state"
 
-    key = "${path_relative_to_include()}/terraform.tfstate"
+    key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
     dynamodb_table = "terraform-lock-table"
@@ -18,7 +18,7 @@ remote_state {
 }
 
 generate "provider" {
-  path = "provider.tf"
+  path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
 
   contents = <<EOF

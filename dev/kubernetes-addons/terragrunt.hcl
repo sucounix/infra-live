@@ -13,8 +13,8 @@ include "env" {
 }
 
 inputs = {
-  env      = include.env.locals.env
-  eks_name = dependency.eks.outputs.eks_name
+  env                 = include.env.locals.env
+  eks_name            = dependency.eks.outputs.eks_name
   openid_provider_arn = dependency.eks.outputs.openid_provider_arn
 
   enable_cluster_autoscaler      = true
