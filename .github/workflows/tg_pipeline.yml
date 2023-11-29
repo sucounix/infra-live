@@ -5,7 +5,7 @@ on: [push, pull_request]
 env:
   tf_version: '1.5.7'
   tg_version: '0.53.7'
-  working_dir: './dev'
+  working_dir: '.'
   TRACE: '1'
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
