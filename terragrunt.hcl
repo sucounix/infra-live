@@ -6,7 +6,8 @@ remote_state {
   }
 
   config = {
-    bucket   = "femtotra-terraform-state"
+    role_arn       = "arn:aws:iam::344845126663:role/terraform"
+    bucket         = "femtotra-terraform-state"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
