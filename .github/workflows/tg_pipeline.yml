@@ -18,12 +18,16 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - name: Configure SSH keys
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    #   - name: Configure SSH keys
+    #     run: |
+    #       mkdir -p ~/.ssh/
+    #       echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    #       chmod 600 ~/.ssh/id_rsa
+    #       echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: 'Checkout'
         uses: actions/checkout@v3
