@@ -1,5 +1,5 @@
 terraform {
-  source = "https://github.com/sucounix/infra-modules.git//eks?ref=eks-v0.0.1"
+  source = "git@github.com:sucounix/infra-modules.git//eks?ref=eks-v0.0.1"
 }
 
 include "root" {
@@ -38,4 +38,3 @@ dependency "vpc" {
     private_subnet_ids = ["subnet-1234", "subnet-5678"]
   }
 }
-

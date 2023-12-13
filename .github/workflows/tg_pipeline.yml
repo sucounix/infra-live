@@ -1,4 +1,4 @@
-name: 'pr-checks'
+name: pr-checks
 
 on: [push, pull_request]
 
@@ -6,24 +6,17 @@ env:
   tf_version: '1.5.7'
   tg_version: '0.53.7'
   working_dir: '.'
-  TRACE: '1'
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: "us-east-1"
-  GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
 
 jobs:
   checks:
     runs-on: ubuntu-latest
+
     steps:
-
-
-      - name: 'Checkout'
-        uses: actions/checkout@v3
-
-      - name: Set Git Configuration for HTTPS access
-        run: git config --global url."https://x-access-token:${{ secrets.REPO_GITHUB_TOKEN }}@github.com/".insteadOf "git@github.com:"
-
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Run checks
         uses: gruntwork-io/terragrunt-action@v2
@@ -34,7 +27,7 @@ jobs:
           tg_command: 'hclfmt --terragrunt-check --terragrunt-diff'
           tg_comment: '0'
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Initialize Terraform
         uses: gruntwork-io/terragrunt-action@v2
@@ -44,7 +37,7 @@ jobs:
           tg_dir: ${{ env.working_dir }}
           tg_command: init
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run plan
         uses: gruntwork-io/terragrunt-action@v2
@@ -55,4 +48,4 @@ jobs:
           tg_command: 'run-all plan'
           tg_comment: '1'
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
