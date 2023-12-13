@@ -38,3 +38,4 @@ dependency "vpc" {
     private_subnet_ids = ["subnet-1234", "subnet-5678"]
   }
 }
+
