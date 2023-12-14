@@ -1,6 +1,6 @@
 terraform {
-  source = "git@github.com:sucounix/infra-modules.git//eks?ref=eks-v0.0.1"
-}
+  source = "git::ssh://git@github.com:sucounix/infra-modules.git//eks?ref=eks-v0.0.1"
+            // git::ssh://git@github.sbc.com/user/terraform-module-va.git//instances?ref=v0.0.2}
 
 include "root" {
   path = find_in_parent_folders()
