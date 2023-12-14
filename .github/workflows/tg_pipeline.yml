@@ -48,6 +48,7 @@ jobs:
         run: |
                 git config --global url."ssh://git@github.com/".insteadOf https://github.com/
                 git clone git@github.com:sucounix/infra-live.git
+                tree
 
       # - name: Run checks
       #   uses: gruntwork-io/terragrunt-action@v2
