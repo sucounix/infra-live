@@ -37,7 +37,7 @@ jobs:
           fi
 
       - name: Show environment variable
-        run: echo "working_dir is $working_dir"
+        run: echo "working_dir is $working_dir" && pwd && tree
 
       - name: Run checks
         uses: gruntwork-io/terragrunt-action@v2
