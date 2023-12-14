@@ -1,5 +1,6 @@
 terraform {
   source = "git::ssh://git@github.com:sucounix/infra-modules.git//eks?ref=eks-v0.0.1"
+}
 
 include "root" {
   path = find_in_parent_folders()
