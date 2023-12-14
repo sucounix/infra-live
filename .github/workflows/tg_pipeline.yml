@@ -24,20 +24,20 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v3
 
-      # - name: Set environment variable based on branch
-      #   run: |
-      #     if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
-      #       echo "working_dir=dev" >> $GITHUB_ENV
-      #     elif [ "${{ github.ref }}" = "refs/heads/stg" ]; then
-      #       echo "working_dir=stg" >> $GITHUB_ENV
-      #     elif [ "${{ github.ref }}" = "refs/heads/prod" ]; then
-      #       echo "working_dir=prod" >> $GITHUB_ENV
-      #     else
-      #       echo "Unknown branch. Not setting working_dir."
-      #     fi
+      - name: Set environment variable based on branch
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+            echo "working_dir=dev" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/stg" ]; then
+            echo "working_dir=stg" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/prod" ]; then
+            echo "working_dir=prod" >> $GITHUB_ENV
+          else
+            echo "Unknown branch. Not setting working_dir."
+          fi
 
-      # - name: Show environment variable
-      #   run: echo "working_dir is $working_dir" && pwd && tree
+      - name: Show environment variable
+        run: echo "working_dir is $working_dir" && pwd && tree
 
       - name: Run checks
         uses: gruntwork-io/terragrunt-action@v2
