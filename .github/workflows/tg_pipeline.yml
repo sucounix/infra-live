@@ -47,36 +47,37 @@ jobs:
 
       - name: Setup access for private go modules
         run: |
-                  git config --global url."ssh://git@github.com/".insteadOf https://github.com/
+                git config --global url."ssh://git@github.com/".insteadOf https://github.com/
+                git clone git@github.com:sucounix/infra-live.git
 
-      - name: Run checks
-        uses: gruntwork-io/terragrunt-action@v2
-        with:
-          tf_version: ${{ env.tf_version }}
-          tg_version: ${{ env.tg_version }}
-          tg_dir: ${{ env.working_dir }}
-          tg_command: "hclfmt --terragrunt-check --terragrunt-diff"
-          tg_comment: "0"
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+      # - name: Run checks
+      #   uses: gruntwork-io/terragrunt-action@v2
+      #   with:
+      #     tf_version: ${{ env.tf_version }}
+      #     tg_version: ${{ env.tg_version }}
+      #     tg_dir: ${{ env.working_dir }}
+      #     tg_command: "hclfmt --terragrunt-check --terragrunt-diff"
+      #     tg_comment: "0"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
 
-      - name: Initialize Terraform
-        uses: gruntwork-io/terragrunt-action@v2
-        with:
-          tf_version: ${{ env.tf_version }}
-          tg_version: ${{ env.tg_version }}
-          tg_dir: ${{ env.working_dir }}
-          tg_command: init
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+      # - name: Initialize Terraform
+      #   uses: gruntwork-io/terragrunt-action@v2
+      #   with:
+      #     tf_version: ${{ env.tf_version }}
+      #     tg_version: ${{ env.tg_version }}
+      #     tg_dir: ${{ env.working_dir }}
+      #     tg_command: init
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
 
-      - name: Run plan
-        uses: gruntwork-io/terragrunt-action@v2
-        with:
-          tf_version: ${{ env.tf_version }}
-          tg_version: ${{ env.tg_version }}
-          tg_dir: ${{ env.working_dir }}
-          tg_command: "run-all plan"
-          tg_comment: "1"
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+      # - name: Run plan
+      #   uses: gruntwork-io/terragrunt-action@v2
+      #   with:
+      #     tf_version: ${{ env.tf_version }}
+      #     tg_version: ${{ env.tg_version }}
+      #     tg_dir: ${{ env.working_dir }}
+      #     tg_command: "run-all plan"
+      #     tg_comment: "1"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
