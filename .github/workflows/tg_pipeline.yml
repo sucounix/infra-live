@@ -25,11 +25,11 @@ jobs:
       #     chmod 600 ~/.ssh/id_rsa
       #     echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
 
-      # - uses: actions/checkout@v3
-      # # Make sure the @v0.8.0 matches the current version of the action
-      # - uses: webfactory/ssh-agent@v0.8.0
-      #   with:
-      #       ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v3
+      # Make sure the @v0.8.0 matches the current version of the action
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: 'Checkout'
         uses: actions/checkout@v3
@@ -81,5 +81,5 @@ jobs:
           tg_dir: ${{ env.working_dir }}
           tg_command: "run-all plan"
           tg_comment: "1"
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
