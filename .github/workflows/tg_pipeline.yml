@@ -25,11 +25,11 @@ jobs:
       #     chmod 600 ~/.ssh/id_rsa
       #     echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
 
-      - uses: actions/checkout@v3
-      # Make sure the @v0.8.0 matches the current version of the action
-      - uses: webfactory/ssh-agent@v0.8.0
-        with:
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - uses: actions/checkout@v3
+      # # Make sure the @v0.8.0 matches the current version of the action
+      # - uses: webfactory/ssh-agent@v0.8.0
+      #   with:
+      #       ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: 'Checkout'
         uses: actions/checkout@v3
@@ -44,13 +44,13 @@ jobs:
       #     ssh-add - <<< "$SSH_PRIVATE_KEY"
       #     echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> $GITHUB_ENV
 
-      - name: Setup access for private go modules
-        run: |
-                # git config --global url."ssh://git@github.com/".insteadOf https://github.com/
-                tree
-                git clone git@github.com:sucounix/infra-modules.git
-                tree
-                # cat ~/.ssh/known_hosts
+      # - name: Setup access for private go modules
+      #   run: |
+      #           # git config --global url."ssh://git@github.com/".insteadOf https://github.com/
+      #           tree
+      #           git clone git@github.com:sucounix/infra-modules.git
+      #           tree
+      #           # cat ~/.ssh/known_hosts
 
       # - name: Run checks
       #   uses: gruntwork-io/terragrunt-action@v2
@@ -70,11 +70,18 @@ jobs:
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir }}
           tg_command: init
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
 
       - name: Run plan
         uses: gruntwork-io/terragrunt-action@v2
+        env:
+          # configure git to use custom token to clone repository.
+          INPUT_PRE_EXEC_1: |
+            git config --global url."https://user:${{ secrets.REPO_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+          # print git configuration
+          INPUT_PRE_EXEC_2: |
+            git config --global --list
         with:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
