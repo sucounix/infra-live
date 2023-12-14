@@ -50,7 +50,7 @@ jobs:
                 tree
                 git clone git@github.com:sucounix/infra-modules.git
                 tree
-                cat ~/.ssh/known_hosts
+                # cat ~/.ssh/known_hosts
 
       # - name: Run checks
       #   uses: gruntwork-io/terragrunt-action@v2
