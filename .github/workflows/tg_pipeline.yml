@@ -30,7 +30,7 @@ jobs:
             echo "working_dir=dev" >> $GITHUB_ENV
           elif [ "${{ github.ref }}" = "refs/heads/stg" ]; then
             echo "working_dir=stg" >> $GITHUB_ENV
-          elif [ "${{ github.ref }}" = "refs/heads/prod" ]; then
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "working_dir=prod" >> $GITHUB_ENV
           else
             echo "Unknown branch. Not setting working_dir."
