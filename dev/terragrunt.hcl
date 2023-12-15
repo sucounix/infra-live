@@ -1,11 +1,5 @@
-include "root" {
-  path = get_working_dir()
-}
-
-include "env" {
-  path           = get_working_dir("env.hcl")
-  expose         = true
-  merge_strategy = "no_merge"
+locals {
+  env = "dev"
 }
 remote_state {
   backend = "s3"
@@ -17,7 +11,7 @@ remote_state {
   config = {
     role_arn       = "arn:aws:iam::344845126663:role/terraform"
     bucket         = "femtotra-terraform-state"
-    key            = "include.env.locals.env/terraform.tfstate"
+    key            = "${local.env}/${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
     dynamodb_table = "terraform-lock-table"
