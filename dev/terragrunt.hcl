@@ -1,9 +1,9 @@
 include "root" {
-  path = find_in_parent_folders()
+  path = get_working_dir()
 }
 
 include "env" {
-  path           = find_in_parent_folders("env.hcl")
+  path           = get_working_dir("env.hcl")
   expose         = true
   merge_strategy = "no_merge"
 }
