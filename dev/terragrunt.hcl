@@ -8,7 +8,7 @@ remote_state {
   config = {
     role_arn       = "arn:aws:iam::344845126663:role/terraform"
     bucket         = "femtotra-terraform-state"
-    key            = "${path_relative_to_include()}/terraform.tfstate"
+    key            = "${get_terragrunt_dir()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
     dynamodb_table = "terraform-lock-table"
