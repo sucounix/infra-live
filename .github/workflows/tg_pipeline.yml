@@ -5,7 +5,7 @@ on:
     branches:
       - dev
       - stg
-      - prod
+      - main
 
 env:
   tf_version: "1.5.7"
