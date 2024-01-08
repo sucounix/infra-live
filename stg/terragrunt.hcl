@@ -3,22 +3,22 @@ locals {
   aws_region = "eu-west-1"
 }
 
-remote_state {
-  backend = "s3"
-  generate = {
-    path      = "backend-tf-core.tf"
-    if_exists = "overwrite_terragrunt"
-  }
+// remote_state {
+//   backend = "s3"
+//   generate = {
+//     path      = "backend-tf-core.tf"
+//     if_exists = "overwrite_terragrunt"
+//   }
 
-  config = {
-    // role_arn       = "arn:aws:iam::344845126663:role/terraform"
-    bucket         = "dev-tf-state-workshop-1c1f4c3cc09fa132"
-    key            = "${path_relative_to_include()}/terraform_locks_tf-core.tfstate"
-    region         = "${local.aws_region}"
-    encrypt        = true
-    dynamodb_table = "dev_terraform_locks_tf-core"
-  }
-}
+//   config = {
+//     // role_arn       = "arn:aws:iam::344845126663:role/terraform"
+//     bucket         = "dev-tf-state-workshop-1c1f4c3cc09fa132"
+//     key            = "${path_relative_to_include()}/terraform_locks_tf-core.tfstate"
+//     region         = "${local.aws_region}"
+//     encrypt        = true
+//     dynamodb_table = "dev_terraform_locks_tf-core"
+//   }
+// }
 
 # Dont un commet
   // backend "s3" {
@@ -32,17 +32,17 @@ remote_state {
 
 
 
-// remote_state {
-//   backend = "local"
-//   generate = {
-//     path      = "backend-tf-core.tf"
-//     if_exists = "overwrite_terragrunt"
-//   }
+remote_state {
+  backend = "local"
+  generate = {
+    path      = "backend-tf-core.tf"
+    if_exists = "overwrite_terragrunt"
+  }
 
-//   config = {
-//     path = "${path_relative_to_include()}/terraform.tfstate"
-//   }
-// }
+  config = {
+    path = "${path_relative_to_include()}/terraform.tfstate"
+  }
+}
 
 generate "aws" {
   path      = "aws.tf"
