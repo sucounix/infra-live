@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.4"
+  source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.5"
   // source = "../../../infra-modules/net"
 }
 
