@@ -12,7 +12,7 @@ remote_state {
 
   config = {
     // role_arn       = "arn:aws:iam::344845126663:role/terraform"
-    bucket         = "dev-tf-state-workshop-1c1f4c3cc09fa132"
+    bucket         = "dev-tf-state-workshop-cac0cd7f14653c8c"
     key            = "${path_relative_to_include()}/terraform_locks_tf-core.tfstate"
     region         = "${local.aws_region}"
     encrypt        = true

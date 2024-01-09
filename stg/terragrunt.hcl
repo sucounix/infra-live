@@ -12,11 +12,11 @@ remote_state {
 
   config = {
     // role_arn       = "arn:aws:iam::344845126663:role/terraform"
-    bucket         = "stg-tf-state-workshop-f065e5a3ee13fa34"
+    bucket         = "stg-tf-state-workshop-5f2999a137a98395"
     key            = "${path_relative_to_include()}/terraform_locks_tf-core.tfstate"
     region         = "${local.aws_region}"
     encrypt        = true
-    dynamodb_table = "dev_terraform_locks_tf-core"
+    dynamodb_table = "stg_terraform_locks_tf-core"
   }
 }
 
