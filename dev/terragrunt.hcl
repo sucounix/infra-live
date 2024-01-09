@@ -114,6 +114,11 @@ data "aws_ssm_parameter" "tf-eks-cluster-name" {
 data "aws_ssm_parameter" "tf-eks-version" {
   name = "/${local.environment}/tf-eks/eks-version"
 }
+
+data "aws_ssm_parameter" "environment" {
+  name = "/${local.environment}/environment"
+}
+
 EOF
 }
 

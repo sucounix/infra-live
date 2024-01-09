@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.5"
+  source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.8"
   // source = "../../../infra-modules/tf-core"
 }
 
