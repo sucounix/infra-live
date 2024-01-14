@@ -1,6 +1,6 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.6"
-  // source = "../../../infra-modules/net"
+  source = "git::https://github.com/sucounix/infra-modules.git//cluster?ref=cluster-v0.0.1"
+  // source = "../../../infra-modules/cluster"
 }
 
 include "root" {
@@ -18,7 +18,7 @@ inputs = {
   region                  = include.env.locals.aws_region
 }
 
-dependency "tf-core" {
-  config_path = "../tf-core"
+dependency "iam" {
+  config_path = "../iam"
   skip_outputs = true
 }

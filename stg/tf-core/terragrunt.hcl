@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.8"
+  source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.9"
   // source = "../../../infra-modules/tf-core"
 }
 
@@ -16,6 +16,7 @@ include "env" {
 inputs = {
   environment             = include.env.locals.environment
   region                  = include.env.locals.aws_region
+  cluster-name            = "dev-k8s-cluster"
   // azs             = ["us-east-1a", "us-east-1b"]
   // vpc_cidr_block  = "10.1.0.0/16"
   // private_subnets = ["10.1.0.0/19", "10.1.32.0/19"]
@@ -31,3 +32,4 @@ inputs = {
   //   "kubernetes.io/cluster/dev-demo" = "owned"
   // }
 }
+
