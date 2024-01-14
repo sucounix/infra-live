@@ -71,17 +71,17 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir }}
-          tg_command: "run-all plan"
-          tg_comment: "1"
-
-      - name: Run apply
-        uses: gruntwork-io/terragrunt-action@v2
-        with:
-          tf_version: ${{ env.tf_version }}
-          tg_version: ${{ env.tg_version }}
-          tg_dir: ${{ env.working_dir }}
           tg_command: "run-all apply"
           tg_comment: "1"
+
+      # - name: Run apply
+      #   uses: gruntwork-io/terragrunt-action@v2
+      #   with:
+      #     tf_version: ${{ env.tf_version }}
+      #     tg_version: ${{ env.tg_version }}
+      #     tg_dir: ${{ env.working_dir }}
+      #     tg_command: "run-all apply"
+      #     tg_comment: "1"
 
       # - name: Run Destroy
       #   uses: gruntwork-io/terragrunt-action@v2
