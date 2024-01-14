@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//iam?ref=iam-v0.0.2"
+  source = "git::https://github.com/sucounix/infra-modules.git//iam?ref=iam-v0.0.4"
   // source = "../../../infra-modules/iam"
 }
 
