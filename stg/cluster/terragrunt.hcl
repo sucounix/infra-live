@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//cluster?ref=cluster-v0.0.1"
+  source = "git::https://github.com/sucounix/infra-modules.git//cluster?ref=cluster-v0.0.2"
   // source = "../../../infra-modules/cluster"
 }
 
