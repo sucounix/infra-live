@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//vpn?ref=vpn-v0.0.3"
+  source = "git::https://github.com/sucounix/infra-modules.git//vpn?ref=vpn-v0.0.2"
   // source = "../../../infra-modules/vpn"
 }
 
