@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.8"
+  source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.9"
   // source = "../../../infra-modules/net"
 }
 
@@ -27,6 +27,9 @@ inputs = {
   subnet-priv1            = "10.0.24.0/21"
   subnet-priv2            = "10.0.32.0/21"
   subnet-priv3            = "10.0.40.0/21"
+  subnet-db1              = "10.0.48.0/21"
+  subnet-db2              = "10.0.56.0/21"
+  subnet-db3              = "10.0.64.0/21"
 }
 
 dependency "tf-core" {
