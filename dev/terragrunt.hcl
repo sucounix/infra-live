@@ -25,7 +25,7 @@ remote_state {
 
   config = {
     // role_arn       = "arn:aws:iam::344845126663:role/terraform"
-    bucket         = "dev-tf-state-workshop-232c6cb36b7bf900"
+    bucket         = "dev-tf-state-workshop-77b0c431c0c319a9"
     key            = "${path_relative_to_include()}/terraform_locks_${path_relative_to_include()}.tfstate"
     region         = "${local.aws_region}"
     encrypt        = true
@@ -81,8 +81,8 @@ terraform {
       version = "~> 2.4.1"
     }
     kubectl = {
-      source  = "alekc/kubectl"
-      version = "~> 2.0.3"
+      source  = "gavinbunney/kubectl"
+      version = ">= 1.14"
     }
 
   }

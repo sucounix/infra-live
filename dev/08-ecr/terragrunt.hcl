@@ -1,6 +1,6 @@
 terraform {
   // source = "git::https://github.com/sucounix/infra-modules.git//vpn?ref=vpn-v0.0.3"
-  source = "../../../infra-modules/ecr"
+  source = "../../../infra-modules/08-ecr"
 }
 
 include "root" {
@@ -33,7 +33,7 @@ inputs = {
   // }
 }
 
-dependency "tf-core" {
-  config_path = "../tf-core"
+dependency "01-tf-core" {
+  config_path = "../01-tf-core"
   skip_outputs = true
 }

@@ -1,6 +1,6 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.10"
-  // source = "../../../infra-modules/tf-core"
+  // source = "git::https://github.com/sucounix/infra-modules.git//tf-core?ref=tf-core-v0.0.10"
+  source = "../../../infra-modules/01-tf-core"
 }
 
 include "root" {

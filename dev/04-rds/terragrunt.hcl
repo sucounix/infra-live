@@ -1,6 +1,6 @@
 terraform {
-  source = "git::https://github.com/sucounix/infra-modules.git//rds?ref=rds-v0.0.5"
-  // source = "../../../infra-modules/rds"
+  // source = "git::https://github.com/sucounix/infra-modules.git//rds?ref=rds-v0.0.5"
+  source = "../../../infra-modules/04-rds"
 }
 
 include "root" {
@@ -20,6 +20,6 @@ inputs = {
 }
 
 dependency "net" {
-  config_path = "../net"
+  config_path = "../02-net"
   skip_outputs = true
 }

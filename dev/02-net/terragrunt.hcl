@@ -1,6 +1,6 @@
 terraform {
   // source = "git::https://github.com/sucounix/infra-modules.git//net?ref=net-v0.0.9"
-  source = "../../../infra-modules/net"
+  source = "../../../infra-modules/02-net"
 }
 
 include "root" {
@@ -33,6 +33,6 @@ inputs = {
 }
 
 dependency "tf-core" {
-  config_path = "../tf-core"
+  config_path = "../01-tf-core"
   skip_outputs = true
 }
