@@ -1,6 +1,6 @@
 terraform {
   // source = "git::https://github.com/sucounix/infra-modules.git//nodeg?ref=nodeg-v0.0.2"
-  source = "../../../infra-modules/nodeg"
+  source = "../../../infra-modules/nlb"
 }
 
 include "root" {
@@ -19,7 +19,7 @@ inputs = {
 }
 
 dependency "cluster" {
-  config_path = "../cluster"
+  config_path = "../net"
   skip_outputs = true
 }
 

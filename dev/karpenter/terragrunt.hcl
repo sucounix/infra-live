@@ -1,6 +1,6 @@
 terraform {
-  // source = "git::https://github.com/sucounix/infra-modules.git//vpn?ref=vpn-v0.0.5"
-  source = "../../../infra-modules/vpn"
+  // source = "git::https://github.com/sucounix/infra-modules.git//vpn?ref=vpn-v0.0.3"
+  source = "../../../infra-modules/karpenter"
 }
 
 include "root" {
@@ -13,10 +13,10 @@ include "env" {
   merge_strategy = "no_merge"
 }
 
-// inputs = {
-//   environment             = include.env.locals.environment
-//   region                  = include.env.locals.aws_region
-//   cluster-name            = "dev-k8s-cluster"
+inputs = {
+  environment             = include.env.locals.environment
+  region                  = include.env.locals.aws_region
+  // cluster-name            = "dev-k8s-cluster"
   // azs             = ["us-east-1a", "us-east-1b"]
   // vpc_cidr_block  = "10.1.0.0/16"
   // private_subnets = ["10.1.0.0/19", "10.1.32.0/19"]
@@ -31,9 +31,9 @@ include "env" {
   //   "kubernetes.io/role/elb"         = 1
   //   "kubernetes.io/cluster/dev-demo" = "owned"
   // }
-// }
+}
 
-dependency "tf-core" {
-  config_path = "../tf-core"
+dependency "eks-addson" {
+  config_path = "../eks-addson"
   skip_outputs = true
 }
